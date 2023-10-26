@@ -1,38 +1,258 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+.notFoundMessage{
+  color: #fff;
+}
+
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  color: white;
+  height: 10vh;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 5vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid white;
+  z-index: 10;
+  background-color: #282c34;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  /* overflow: hidden; */
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.inputBox {
+  height: 2rem;
+  width: clamp(15rem, 70%, 30rem);
+  text-align: center;
+  font-size: large;
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.inputBox:active,
+.inputBox:focus {
+  border-color: rgb(29, 155, 197);
+  box-shadow: 0 0 15px rgb(21, 153, 201);
+  outline: none;
+}
+
+.suggestedWrapper {
+  max-height: 20vh;
+  width: clamp(15rem, 70%, 30rem);
+  color: #fff;
+  overflow-y: scroll;
+  border: 1px solid lightblue;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.suggestion {
+  background-color: #fff;
+  color: black;
+  height: 5vh;
+  border: 1px solid lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  transition: 0.5s ease-in-out;
+}
+
+.suggestion:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.CityWeather {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 1rem;
+  border-bottom: 1px solid white;
+  opacity: 0.8;
+}
+
+/* --------------------current.jsx----------------------- */
+.c_header {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  width: clamp(20rem, 90%, 40rem);
+}
+
+.c_container {
+  margin-top: 1rem;
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.c_container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.c_container div span:nth-child(1) {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: bold;
+}
+.c_container div span:nth-child(2) {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+}
+
+.c_container div img {
+  width: clamp(5rem, 2vw, 6rem);
+}
+
+@media screen and (max-width: 576px) {
+  .c_header {
+    width: clamp(10rem, 90%, 20rem);
   }
-  to {
-    transform: rotate(360deg);
+
+  .c_container {
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .c_container div img {
+    margin: auto;
+  }
+}
+
+/* ----------------Forecast.jsx---------------- */
+
+/* Accordian Head */
+.F_container {
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+  width: clamp(16rem, 90%, 50rem);
+}
+
+.F_header {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+}
+
+.F_accrodion {
+  margin-top: 2rem;
+}
+
+.A_container {
+  overflow: scroll;
+}
+
+.F_icon {
+  width: 2.5rem;
+}
+
+.F_accordion_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.F_accordion_header div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+}
+
+.F_accordion_header div span:nth-child(1) {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: bold;
+}
+
+.F_accordion_header div span:nth-child(2) {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Accordian Body */
+
+.accordian_body {
+  background-color:rgb(40, 44, 52);
+}
+
+.accordian_innerbody {
+  display: flex;
+  height: 12rem;
+  overflow-y: scroll;
+}
+
+.capsule_container {
+  margin: auto 0.5rem;
+}
+
+.capsule {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 11rem;
+  border-radius: 4.5rem;
+  color:#fff;
+  font-weight: 500;
+
+  backdrop-filter: blur(0px) saturate(200%);
+  -webkit-backdrop-filter: blur(0px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media screen and (max-width: 768px) {
+  .F_accordion_header div:nth-child(2),
+  .F_accordion_header div:nth-child(3),
+  .F_accordion_header div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .F_accordion_header div:nth-child(3),
+  .F_accordion_header div:nth-child(4) {
+    display: none;
+  }
+
+  .F_accordion_header {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .F_accordion_header div:nth-child(2) div {
+    display: flex;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+
+  .F_accordion_header div:nth-child(1) {
+    width: 6.5rem;
+    align-items: flex-start;
   }
 }
